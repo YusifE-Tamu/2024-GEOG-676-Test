@@ -1,0 +1,24 @@
+## Lab 5 Explainer
+
+- Structure and Organization:
+  - There are Duplicate methods (updateParameters, updateMessages, execute) have been removed from the old script.
+  - The postExecute method has been removed because it was unused.
+- Error Handling:
+  - The new code includes a try-except block in the execute method, which deals with error handling and reporting your problems better.
+- Parameter Definitions:
+  - The new code uses more appropriate data types for parameters:
+    - "GDB Folder" now uses "DEFolder" instead of "GPString" | so you can select a place on the drive to write your new gdb
+    - "Campus GDB" now uses "DEWorkspace" instead of "DEType"
+- File Path Handling:
+  - The new code uses os.path.join() for constructing file paths, which is more robust and cross-platform compatible.
+  - The new code adds ".gdb" extension when constructing the geodatabase path because it didn't before.
+- Overwrite Output:
+  - The new code explicitly sets arcpy.env.overwriteOutput = True, allowing existing data to be overwritten, so you can reuse the roolbox in the same work space.
+- Geodatabase Creation:
+  - The new code checks if the geodatabase exists before attempting to create it, it kind of important to know since your overwriting the old one.
+- Messaging:
+  - The new code includes more detailed arcpy.AddMessage() calls, providing better feedback during execution, which helps you know whats happening during execution time.
+- Variable Naming:
+  - The new code uses more consistent and descriptive variable names (e.g., "buildings" instead of "bldgs").
+- Buffer Distance:
+  - The old code had a hardcoded buffer distance of 150, while the new code correctly uses the user-input buffer distance, so you can switch it up in the tool itself.
